@@ -16,12 +16,12 @@ limitations under the License.
 package gotranslate
 
 import (
-	"errors"
+	// "errors"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
-	"reflect"
+	// "reflect"
 	"regexp"
 	"strings"
 )
@@ -43,9 +43,9 @@ type Response [][][]string
 
 func TranslationRequest(text string, from Lang, to Lang) (string, error) {
 
-	if !checkLang(from) && !checkLang(to) {
+	/*	if !checkLang(from) && !checkLang(to) {
 		return "", errors.New("Not Lang type")
-	}
+	}*/
 
 	var Url *url.URL
 	Url, err := url.Parse("http://translate.google.com")
@@ -96,9 +96,9 @@ func check(err error) {
 	}
 }
 
-func checkLang(i interface{}) bool {
-	if reflect.TypeOf(i) == reflect.TypeOf(Lang) {
+/*func checkLang(i interface{}) bool {
+	if i.type == Lang {
 		return true
 	}
 	return false
-}
+}*/
