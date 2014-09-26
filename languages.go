@@ -344,6 +344,10 @@ const (
 	Zulu Lang = "zu"
 	//Zulu
 	ZU Lang = "zu"
+
+	//Auto identify language
+	AUTO      Lang = "auto"
+	AUTOMATIC Lang = "auto"
 )
 
 //=======================================================================

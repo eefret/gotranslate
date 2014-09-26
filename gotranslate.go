@@ -16,12 +16,13 @@ limitations under the License.
 package gotranslate
 
 import (
-	//"encoding/json"
-	"fmt"
+	"errors"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
+	"reflect"
+	"regexp"
 	"strings"
 )
 
@@ -42,11 +43,18 @@ type Response [][][]string
 
 func TranslationRequest(text string, from Lang, to Lang) (string, error) {
 
+	if !checkLang(from) && !checkLang(to) {
+		return "", errors.New("Not Lang type")
+	}
+
 	var Url *url.URL
 	Url, err := url.Parse("http://translate.google.com")
-	if err != nil {
-		log.Fatal(err)
-	}
+	check(err)
+
+	text = strings.Replace(text, "\"", "", -1)
+	text = strings.Replace(text, "[", "", -1)
+	text = strings.Replace(text, "]", "", -1)
+	text = strings.Replace(text, ",", " ", -1)
 
 	Url.Path += "/translate_a/t"
 	parameters := url.Values{}
@@ -68,35 +76,29 @@ func TranslationRequest(text string, from Lang, to Lang) (string, error) {
 
 	resp, err := http.Get(Url.String())
 	defer resp.Body.Close()
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	//response := new(Response)
-	//err = json.NewDecoder(resp.Body).Decode(response)
+	check(err)
 
 	contents, err := ioutil.ReadAll(resp.Body)
+	check(err)
+
+	reg, err := regexp.Compile("\"(.+?)\"")
+	check(err)
+
+	var allStrings []string
+	allStrings = reg.FindAllString(string(contents), 3)
+
+	return allStrings[0], nil
+}
+
+func check(err error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	unparsedText := string(contents)
-	var allStrings []string
+}
 
-	allStrings = strings.Split(unparsedText, ",")
-
-	for key, value := range allStrings {
-		if value == "" {
-			allStrings[key] = "\"\""
-		}
-		fmt.Println(value)
+func checkLang(i interface{}) bool {
+	if reflect.TypeOf(i) == reflect.TypeOf(Lang) {
+		return true
 	}
-
-	//var parsedText string
-
-	//parsedText = strings.Join(allStrings, ",")
-
-	//fmt.Printf("%v", parsedText)
-
-	return "", nil
+	return false
 }
