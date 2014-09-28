@@ -30,15 +30,17 @@ import (
 //							Const
 //=======================================================================
 
-const baseUrl string = "http://translate.google.com"
+const baseURL string = "http://translate.google.com"
 
 //=======================================================================
 //							Errors
 //=======================================================================
 
 var (
-	InvalidLangError   error = errors.New("The lang is invalid, please use a valid one")
-	NoTranslationError error = errors.New("Theres no Translation")
+	//ErrInvalidLang is launched when an invalid Lang is passed to any func
+	ErrInvalidLang = errors.New("the lang is invalid, please use a valid one")
+	//ErrNoTranslation is launched when there's no translation available
+	ErrNoTranslation = errors.New("theres no translation")
 )
 
 //=======================================================================
@@ -62,7 +64,7 @@ type Translator struct {
 //need a source Lang, a target Lang and a history size
 func GetTranslator(from Lang, to Lang, historySize int) (*Translator, error) {
 	if !from.valid() || !to.valid() {
-		return nil, InvalidLangError
+		return nil, ErrInvalidLang
 	}
 
 	t := &Translator{
@@ -105,11 +107,11 @@ func QuickTranslation(text string, from Lang, to Lang) string {
 func translationRequest(text string, from Lang, to Lang) (string, error) {
 
 	if !from.valid() || !to.valid() {
-		return "", InvalidLangError
+		return "", ErrInvalidLang
 	}
 
-	var Url *url.URL
-	Url, err := url.Parse(baseUrl)
+	var URL *url.URL
+	URL, err := url.Parse(baseURL)
 	check(err)
 
 	text = strings.Replace(text, "\"", "", -1)
@@ -117,7 +119,7 @@ func translationRequest(text string, from Lang, to Lang) (string, error) {
 	text = strings.Replace(text, "]", "", -1)
 	text = strings.Replace(text, ",", " ", -1)
 
-	Url.Path += "/translate_a/t"
+	URL.Path += "/translate_a/t"
 	parameters := url.Values{}
 	parameters.Add("client", "t")
 	parameters.Add("text", text)
@@ -133,9 +135,9 @@ func translationRequest(text string, from Lang, to Lang) (string, error) {
 	parameters.Add("ssel", "3")
 	parameters.Add("tsel", "6")
 	parameters.Add("sc", "1")
-	Url.RawQuery = parameters.Encode()
+	URL.RawQuery = parameters.Encode()
 
-	resp, err := http.Get(Url.String())
+	resp, err := http.Get(URL.String())
 	defer resp.Body.Close()
 	check(err)
 
@@ -152,7 +154,7 @@ func translationRequest(text string, from Lang, to Lang) (string, error) {
 	allStrings = reg.FindAllString(string(contents), 2)
 
 	if len(allStrings) < 1 {
-		return "", NoTranslationError
+		return "", ErrNoTranslation
 	}
 
 	return allStrings[0], nil

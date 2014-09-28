@@ -21,339 +21,341 @@ package gotranslate
 //=======================================================================
 
 const (
-	//Afrikaans
+	//Afrikaans language
 	Afrikaans Lang = iota
-	//Afrikaans
+	//AF language
 	AF
-	//Albanian
+	//Albanian language
 	Albanian
-	//Albanian
+	//SQ language
 	SQ
-	//Arabic
+	//Arabic language
 	Arabic
-	//Arabic
+	//AR language
 	AR
-	//Armenian
+	//Armenian language
 	Armenian
-	//Armenian
+	//HY language
 	HY
-	//Azerbaijani
+	//Azerbaijani language
 	Azerbaijani
-	//Azerbaijani
+	//AZ language
 	AZ
-	//Basque
+	//Basque language
 	Basque
-	//Basque
+	//EU language
 	EU
-	//Belarusian
+	//Belarusian language
 	Belarusian
-	//Belarusian
+	//BE language
 	BE
-	//Bengali
+	//Bengali language
 	Bengali
-	//Bengali
+	//BN language
 	BN
-	//Bosnian
+	//Bosnian language
 	Bosnian
-	//Bosnian
+	//BS language
 	BS
-	//Bulgarian
+	//Bulgarian language
 	Bulgarian
-	//Bulgarian
+	//BG language
 	BG
-	//Catalan
+	//Catalan language
 	Catalan
-	//Catalan
+	//CA language
 	CA
-	//Cebuano
+	//Cebuano language
 	Cebuano
-	//Cebuano
+	//CEB language
 	CEB
-	//Chinese Simplified
-	Chinese_S
-	//Chinese Simplified
-	ZH_CN
-	//Chinese Traditional
-	Chinese_T
-	//Chinese Traditional
-	ZH_TW
-	//Croatian
+	//ChineseS language
+	ChineseS
+	//ZHCN language
+	ZHCN
+	//ChineseT language
+	ChineseT
+	//ZHTW language
+	ZHTW
+	//Croatian language
 	Croatian
-	//Croatian
+	//HR language
 	HR
-	//Czech
+	//Czech language
 	Czech
-	//Czech
+	//CS language
 	CS
-	//Danish
+	//Danish language
 	Danish
-	//Danish
+	//DA language
 	DA
-	//Dutch
+	//Dutch language
 	Dutch
-	//Dutch
+	//NL language
 	NL
-	//English
+	//English language
 	English
-	//English
+	//EN language
 	EN
-	//Esperanto
+	//Esperanto language
 	Esperanto
-	//Esperanto
+	//EO language
 	EO
-	//Estonian
+	//Estonian language
 	Estonian
-	//Estonian
+	//ET language
 	ET
-	//Fillipino
+	//Fillipino language
 	Fillipino
-	//Fillipino
+	//TL language
 	TL
-	//Finnish
+	//Finnish language
 	Finnish
-	//Finnish
+	//FI language
 	FI
-	//French
+	//French language
 	French
-	//French
+	//FR language
 	FR
-	//Galician
+	//Galician language
 	Galician
-	//Galician
+	//GL language
 	GL
-	//Georgian
+	//Georgian language
 	Georgian
-	//Georgian
+	//KA language
 	KA
-	//German
+	//German language
 	German
-	//German
+	//DE language
 	DE
-	//Greek
+	//Greek language
 	Greek
-	//Greek
+	//EL language
 	EL
-	//Gujarati
+	//Gujarati language
 	Gujarati
-	//Gujarati
+	//GU language
 	GU
-	//Haitian Creole
+	//Haitian language
 	Haitian
-	//Haitian Creole
+	//HT language
 	HT
-	//Hausa
+	//Hausa language
 	Hausa
-	//Hausa
+	//HA language
 	HA
-	//Hebrew
+	//Hebrew language
 	Hebrew
-	//Hebrew
+	//IW language
 	IW
-	//Hindi
+	//Hindi language
 	Hindi
-	//Hindi
+	//HI language
 	HI
-	//Hmong
+	//Hmong language
 	Hmong
-	//Hmong
+	//HMN language
 	HMN
-	//Hungarian
+	//Hungarian language
 	Hungarian
-	//Hungarian
+	//HU language
 	HU
-	//Icelandic
+	//Icelandic language
 	Icelandic
-	//Icelandic
+	//IS language
 	IS
-	//Igbo
+	//Igbo language
 	Igbo
-	//Igbo
+	//IG language
 	IG
-	//Indonesian
+	//Indonesian language
 	Indonesian
-	//Indonesian
+	//ID language
 	ID
-	//Irish
+	//Irish language
 	Irish
-	//Irish
+	//GA language
 	GA
-	//Italian
+	//Italian language
 	Italian
-	//Italian
+	//IT language
 	IT
-	//Japanese
+	//Japanese language
 	Japanese
-	//Japanese
+	//JA language
 	JA
-	//Javanese
+	//Javanese language
 	Javanese
-	//Javanese
+	//JW language
 	JW
-	//Kannada
+	//Kannada language
 	Kannada
-	//Kannada
+	//KN language
 	KN
-	//Khmer
+	//Khmer language
 	Khmer
-	//Khmer
+	//KM language
 	KM
-	//Korean
+	//Korean language
 	Korean
-	//Korean
+	//KO language
 	KO
-	//Lao
+	//Lao language
 	Lao
-	//Lao
+	//LO language
 	LO
-	//Latin
+	//Latin language
 	Latin
-	//Latin
+	//LA language
 	LA
-	//Latvian
+	//Latvian language
 	Latvian
-	//Latvian
+	//LV language
 	LV
-	//Lithuanian
+	//Lithuanian language
 	Lithuanian
-	//Lithuanian
+	//LT language
 	LT
-	//Macedonian
+	//Macedonian language
 	Macedonian
-	//Macedonian
+	//MK language
 	MK
-	//Malay
+	//Malay language
 	Malay
-	//Malay
+	//MS language
 	MS
-	//Maltese
+	//Maltese language
 	Maltese
-	//Maltese
+	//MT language
 	MT
-	//Maori
+	//Maori language
 	Maori
-	//Maori
+	//MI language
 	MI
-	//Marathi
+	//Marathi language
 	Marathi
-	//Marathi
+	//MR language
 	MR
-	//Mongolian
+	//Mongolian language
 	Mongolian
-	//Mongolian
+	//MN language
 	MN
-	//Nepali
+	//Nepali language
 	Nepali
-	//Nepali
+	//NE language
 	NE
-	//Norwegian
+	//Norwegian language
 	Norwegian
-	//Norwegian
+	//NO language
 	NO
-	//Persian
+	//Persian language
 	Persian
-	//Persian
+	//FA language
 	FA
-	//Polish
+	//Polish language
 	Polish
-	//Polish
+	//PL language
 	PL
-	//Portuguese
+	//Portuguese language
 	Portuguese
-	//Portuguese
+	//PT language
 	PT
-	//Punjabi
+	//Punjabi language
 	Punjabi
-	//Punjabi
+	//PA language
 	PA
-	//Romanian
+	//Romanian language
 	Romanian
-	//Romanian
+	//RO language
 	RO
-	//Russian
+	//Russian language
 	Russian
-	//Russian
+	//RU language
 	RU
-	//Serbian
+	//Serbian language
 	Serbian
-	//Serbian
+	//SR language
 	SR
-	//Slovak
+	//Slovak language
 	Slovak
-	//Slovak
+	//SK language
 	SK
-	//Slovenian
+	//Slovenian language
 	Slovenian
-	//Slovenian
+	//SL language
 	SL
-	//Somali
+	//Somali language
 	Somali
-	//Somali
+	//SO language
 	SO
-	//Spanish
+	//Spanish language
 	Spanish
-	//Spanish
+	//ES language
 	ES
-	//Swahili
+	//Swahili language
 	Swahili
-	//Swahili
+	//SW language
 	SW
-	//Swedish
+	//Swedish language
 	Swedish
-	//Swedish
+	//SV language
 	SV
-	//Tamil
+	//Tamil language
 	Tamil
-	//Tamil
+	//TA language
 	TA
-	//Telugu
+	//Telugu language
 	Telugu
-	//Telugu
+	//TE language
 	TE
-	//Thai
+	//Thai language
 	Thai
-	//Thai
+	//TH language
 	TH
-	//Turkish
+	//Turkish language
 	Turkish
-	//Turkish
+	//TR language
 	TR
-	//Ukranian
+	//Ukranian language
 	Ukranian
-	//Ukranian
+	//UK language
 	UK
-	//Urdu
+	//Urdu language
 	Urdu
-	//Urdu
+	//UR language
 	UR
-	//Vietnamese
+	//Vietnamese language
 	Vietnamese
-	//Vietnamese
+	//VI language
 	VI
-	//Weish
+	//Weish language
 	Weish
-	//Weish
+	//CY language
 	CY
-	//Yiddish
+	//Yiddish language
 	Yiddish
-	//Yiddish
+	//YI language
 	YI
-	//Yoruba
+	//Yoruba language
 	Yoruba
-	//Yoruba
+	//YO language
 	YO
-	//Zulu
+	//Zulu language
 	Zulu
-	//Zulu
+	//ZU language
 	ZU
-	//Auto identify uage
+	//AUTO Automatically recognized lang
 	AUTO
-	AUTOMATIC
+	//Automatic recognized Lang
+	Automatic
 )
 
 //=======================================================================
 //						Structs & Types
 //=======================================================================
 
+//Lang is a type that represents a ISO 693-1 language in a easy way
 type Lang uint8
 
 var langs = [...]string{
@@ -530,6 +532,7 @@ func (l Lang) valid() bool {
 	return uint8(l) < uint8(len(langs))
 }
 
+//Stringer interface for Lang type
 func (l Lang) String() string {
 	if !l.valid() {
 		return "invalid!"
