@@ -21,337 +21,523 @@ package gotranslate
 
 const (
 	//Afrikaans
-	Afrikaans Lang = "af"
+	Afrikaans Lang = iota
 	//Afrikaans
-	AF Lang = "af"
+	AF
 	//Albanian
-	Albanian Lang = "sq"
+	Albanian
 	//Albanian
-	SQ Lang = "sq"
+	SQ
 	//Arabic
-	Arabic Lang = "ar"
+	Arabic
 	//Arabic
-	AR Lang = "ar"
+	AR
 	//Armenian
-	Armenian Lang = "hy"
+	Armenian
 	//Armenian
-	HY Lang = "hy"
+	HY
 	//Azerbaijani
-	Azerbaijani Lang = "az"
+	Azerbaijani
 	//Azerbaijani
-	AZ Lang = "az"
+	AZ
 	//Basque
-	Basque Lang = "eu"
+	Basque
 	//Basque
-	EU Lang = "eu"
+	EU
 	//Belarusian
-	Belarusian Lang = "be"
+	Belarusian
 	//Belarusian
-	BE Lang = "be"
+	BE
 	//Bengali
-	Bengali Lang = "bn"
+	Bengali
 	//Bengali
-	BN Lang = "bn"
+	BN
 	//Bosnian
-	Bosnian Lang = "bs"
+	Bosnian
 	//Bosnian
-	BS Lang = "bs"
+	BS
 	//Bulgarian
-	Bulgarian Lang = "bg"
+	Bulgarian
 	//Bulgarian
-	BG Lang = "bg"
+	BG
 	//Catalan
-	Catalan Lang = "ca"
+	Catalan
 	//Catalan
-	CA Lang = "ca"
+	CA
 	//Cebuano
-	Cebuano Lang = "ceb"
+	Cebuano
 	//Cebuano
-	CEB Lang = "ceb"
+	CEB
 	//Chinese Simplified
-	Chinese_S Lang = "zh-CN"
+	Chinese_S
 	//Chinese Simplified
-	ZH_CN Lang = "zh-CN"
+	ZH_CN
 	//Chinese Traditional
-	Chinese_T Lang = "zh-TW"
+	Chinese_T
 	//Chinese Traditional
-	ZH_TW Lang = "zh-TW"
+	ZH_TW
 	//Croatian
-	Croatian Lang = "hr"
+	Croatian
 	//Croatian
-	HR Lang = "hr"
+	HR
 	//Czech
-	Czech Lang = "cs"
+	Czech
 	//Czech
-	CS Lang = "cs"
+	CS
 	//Danish
-	Danish Lang = "da"
+	Danish
 	//Danish
-	DA Lang = "da"
+	DA
 	//Dutch
-	Dutch Lang = "nl"
+	Dutch
 	//Dutch
-	NL Lang = "nl"
+	NL
 	//English
-	English Lang = "en"
+	English
 	//English
-	EN Lang = "en"
+	EN
 	//Esperanto
-	Esperanto Lang = "eo"
+	Esperanto
 	//Esperanto
-	EO Lang = "eo"
+	EO
 	//Estonian
-	Estonian Lang = "et"
+	Estonian
 	//Estonian
-	ET Lang = "et"
+	ET
 	//Fillipino
-	Fillipino Lang = "tl"
+	Fillipino
 	//Fillipino
-	TL Lang = "tl"
+	TL
 	//Finnish
-	Finnish Lang = "fi"
+	Finnish
 	//Finnish
-	FI Lang = "fi"
+	FI
 	//French
-	French Lang = "fr"
+	French
 	//French
-	FR Lang = "fr"
+	FR
 	//Galician
-	Galician Lang = "gl"
+	Galician
 	//Galician
-	GL Lang = "gl"
+	GL
 	//Georgian
-	Georgian Lang = "ka"
+	Georgian
 	//Georgian
-	KA Lang = "ka"
+	KA
 	//German
-	German Lang = "de"
+	German
 	//German
-	DE Lang = "de"
+	DE
 	//Greek
-	Greek Lang = "el"
+	Greek
 	//Greek
-	EL Lang = "el"
+	EL
 	//Gujarati
-	Gujarati Lang = "gu"
+	Gujarati
 	//Gujarati
-	GU Lang = "gu"
+	GU
 	//Haitian Creole
-	Haitian Lang = "ht"
+	Haitian
 	//Haitian Creole
-	HT Lang = "ht"
+	HT
 	//Hausa
-	Hausa Lang = "ha"
+	Hausa
 	//Hausa
-	HA Lang = "ha"
+	HA
 	//Hebrew
-	Hebrew Lang = "iw"
+	Hebrew
 	//Hebrew
-	IW Lang = "iw"
+	IW
 	//Hindi
-	Hindi Lang = "hi"
+	Hindi
 	//Hindi
-	HI Lang = "hi"
+	HI
 	//Hmong
-	Hmong Lang = "hmn"
+	Hmong
 	//Hmong
-	HMN Lang = "hmn"
+	HMN
 	//Hungarian
-	Hungarian Lang = "hu"
+	Hungarian
 	//Hungarian
-	HU Lang = "hu"
+	HU
 	//Icelandic
-	Icelandic Lang = "is"
+	Icelandic
 	//Icelandic
-	IS Lang = "is"
+	IS
 	//Igbo
-	Igbo Lang = "ig"
+	Igbo
 	//Igbo
-	IG Lang = "ig"
+	IG
 	//Indonesian
-	Indonesian Lang = "id"
+	Indonesian
 	//Indonesian
-	ID Lang = "id"
+	ID
 	//Irish
-	Irish Lang = "ga"
+	Irish
 	//Irish
-	GA Lang = "ga"
+	GA
 	//Italian
-	Italian Lang = "it"
+	Italian
 	//Italian
-	IT Lang = "it"
+	IT
 	//Japanese
-	Japanese Lang = "ja"
+	Japanese
 	//Japanese
-	JA Lang = "ja"
+	JA
 	//Javanese
-	Javanese Lang = "jw"
+	Javanese
 	//Javanese
-	JW Lang = "jw"
+	JW
 	//Kannada
-	Kannada Lang = "kn"
+	Kannada
 	//Kannada
-	KN Lang = "kn"
+	KN
 	//Khmer
-	Khmer Lang = "km"
+	Khmer
 	//Khmer
-	KM Lang = "km"
+	KM
 	//Korean
-	Korean Lang = "ko"
+	Korean
 	//Korean
-	KO Lang = "ko"
+	KO
 	//Lao
-	Lao Lang = "lo"
+	Lao
 	//Lao
-	LO Lang = "lo"
+	LO
 	//Latin
-	Latin Lang = "la"
+	Latin
 	//Latin
-	LA Lang = "la"
+	LA
 	//Latvian
-	Latvian Lang = "lv"
+	Latvian
 	//Latvian
-	LV Lang = "lv"
+	LV
 	//Lithuanian
-	Lithuanian Lang = "lt"
+	Lithuanian
 	//Lithuanian
-	LT Lang = "lt"
+	LT
 	//Macedonian
-	Macedonian Lang = "mk"
+	Macedonian
 	//Macedonian
-	MK Lang = "mk"
+	MK
 	//Malay
-	Malay Lang = "ms"
+	Malay
 	//Malay
-	MS Lang = "ms"
+	MS
 	//Maltese
-	Maltese Lang = "mt"
+	Maltese
 	//Maltese
-	MT Lang = "mt"
+	MT
 	//Maori
-	Maori Lang = "mi"
+	Maori
 	//Maori
-	MI Lang = "mi"
+	MI
 	//Marathi
-	Marathi Lang = "mr"
+	Marathi
 	//Marathi
-	MR Lang = "mr"
+	MR
 	//Mongolian
-	Mongolian Lang = "mn"
+	Mongolian
 	//Mongolian
-	MN Lang = "mn"
+	MN
 	//Nepali
-	Nepali Lang = "ne"
+	Nepali
 	//Nepali
-	NE Lang = "ne"
+	NE
 	//Norwegian
-	Norwegian Lang = "no"
+	Norwegian
 	//Norwegian
-	NO Lang = "no"
+	NO
 	//Persian
-	Persian Lang = "fa"
+	Persian
 	//Persian
-	FA Lang = "fa"
+	FA
 	//Polish
-	Polish Lang = "pl"
+	Polish
 	//Polish
-	PL Lang = "pl"
+	PL
 	//Portuguese
-	Portuguese Lang = "pt"
+	Portuguese
 	//Portuguese
-	PT Lang = "pt"
+	PT
 	//Punjabi
-	Punjabi Lang = "pa"
+	Punjabi
 	//Punjabi
-	PA Lang = "pa"
+	PA
 	//Romanian
-	Romanian Lang = "ro"
+	Romanian
 	//Romanian
-	RO Lang = "ro"
+	RO
 	//Russian
-	Russian Lang = "ru"
+	Russian
 	//Russian
-	RU Lang = "ru"
+	RU
 	//Serbian
-	Serbian Lang = "sr"
+	Serbian
 	//Serbian
-	SR Lang = "sr"
+	SR
 	//Slovak
-	Slovak Lang = "sk"
+	Slovak
 	//Slovak
-	SK Lang = "sk"
+	SK
 	//Slovenian
-	Slovenian Lang = "sl"
+	Slovenian
 	//Slovenian
-	SL Lang = "sl"
+	SL
 	//Somali
-	Somali Lang = "so"
+	Somali
 	//Somali
-	SO Lang = "so"
+	SO
 	//Spanish
-	Spanish Lang = "es"
+	Spanish
 	//Spanish
-	ES Lang = "es"
+	ES
 	//Swahili
-	Swahili Lang = "sw"
+	Swahili
 	//Swahili
-	SW Lang = "sw"
+	SW
 	//Swedish
-	Swedish Lang = "sv"
+	Swedish
 	//Swedish
-	SV Lang = "sv"
+	SV
 	//Tamil
-	Tamil Lang = "ta"
+	Tamil
 	//Tamil
-	TA Lang = "ta"
+	TA
 	//Telugu
-	Telugu Lang = "te"
+	Telugu
 	//Telugu
-	TE Lang = "te"
+	TE
 	//Thai
-	Thai Lang = "th"
+	Thai
 	//Thai
-	TH Lang = "th"
+	TH
 	//Turkish
-	Turkish Lang = "tr"
+	Turkish
 	//Turkish
-	TR Lang = "tr"
+	TR
 	//Ukranian
-	Ukranian Lang = "uk"
+	Ukranian
 	//Ukranian
-	UK Lang = "uk"
+	UK
 	//Urdu
-	Urdu Lang = "ur"
+	Urdu
 	//Urdu
-	UR Lang = "ur"
+	UR
 	//Vietnamese
-	Vietnamese Lang = "vi"
+	Vietnamese
 	//Vietnamese
-	VI Lang = "vi"
+	VI
 	//Weish
-	Weish Lang = "cy"
+	Weish
 	//Weish
-	CY Lang = "cy"
+	CY
 	//Yiddish
-	Yiddish Lang = "yi"
+	Yiddish
 	//Yiddish
-	YI Lang = "yi"
+	YI
 	//Yoruba
-	Yoruba Lang = "yo"
+	Yoruba
 	//Yoruba
-	YO Lang = "yo"
+	YO
 	//Zulu
-	Zulu Lang = "zu"
+	Zulu
 	//Zulu
-	ZU Lang = "zu"
-
-	//Auto identify language
-	AUTO      Lang = "auto"
-	AUTOMATIC Lang = "auto"
+	ZU
+	//Auto identify uage
+	AUTO
+	AUTOMATIC
 )
 
 //=======================================================================
-//							Types
+//						Structs & Types
 //=======================================================================
 
-type Lang string
+type Lang uint8
+
+var langs = [...]string{
+	"af",
+	"af",
+	"sq",
+	"sq",
+	"ar",
+	"ar",
+	"hy",
+	"hy",
+	"az",
+	"az",
+	"eu",
+	"eu",
+	"be",
+	"be",
+	"bn",
+	"bn",
+	"bs",
+	"bs",
+	"bg",
+	"bg",
+	"ca",
+	"ca",
+	"ceb",
+	"ceb",
+	"zh-CN",
+	"zh-CN",
+	"zh-TW",
+	"zh-TW",
+	"hr",
+	"hr",
+	"cs",
+	"cs",
+	"da",
+	"da",
+	"nl",
+	"nl",
+	"en",
+	"en",
+	"eo",
+	"eo",
+	"et",
+	"et",
+	"tl",
+	"tl",
+	"fi",
+	"fi",
+	"fr",
+	"fr",
+	"gl",
+	"gl",
+	"ka",
+	"ka",
+	"de",
+	"de",
+	"el",
+	"el",
+	"gu",
+	"gu",
+	"ht",
+	"ht",
+	"ha",
+	"ha",
+	"iw",
+	"iw",
+	"hi",
+	"hi",
+	"hmn",
+	"hmn",
+	"hu",
+	"hu",
+	"is",
+	"is",
+	"ig",
+	"ig",
+	"id",
+	"id",
+	"ga",
+	"ga",
+	"it",
+	"it",
+	"ja",
+	"ja",
+	"jw",
+	"jw",
+	"kn",
+	"kn",
+	"km",
+	"km",
+	"ko",
+	"ko",
+	"lo",
+	"lo",
+	"la",
+	"la",
+	"lv",
+	"lv",
+	"lt",
+	"lt",
+	"mk",
+	"mk",
+	"ms",
+	"ms",
+	"mt",
+	"mt",
+	"mi",
+	"mi",
+	"mr",
+	"mr",
+	"mn",
+	"mn",
+	"ne",
+	"ne",
+	"no",
+	"no",
+	"fa",
+	"fa",
+	"pl",
+	"pl",
+	"pt",
+	"pt",
+	"pa",
+	"pa",
+	"ro",
+	"ro",
+	"ru",
+	"ru",
+	"sr",
+	"sr",
+	"sk",
+	"sk",
+	"sl",
+	"sl",
+	"so",
+	"so",
+	"es",
+	"es",
+	"sw",
+	"sw",
+	"sv",
+	"sv",
+	"ta",
+	"ta",
+	"te",
+	"te",
+	"th",
+	"th",
+	"tr",
+	"tr",
+	"uk",
+	"uk",
+	"ur",
+	"ur",
+	"vi",
+	"vi",
+	"cy",
+	"cy",
+	"yi",
+	"yi",
+	"yo",
+	"yo",
+	"zu",
+	"zu",
+	"auto",
+	"auto"}
+
+//=======================================================================
+//							Funcs
+//=======================================================================
+
+func (l Lang) valid() bool {
+	return uint8(l) < uint8(len(langs))
+}
+
+func (l Lang) String() string {
+	if !l.valid() {
+		return "invalid!"
+	}
+	return langs[l]
+}
+
+type private interface {
+	private()
+}
+
+func (l Lang) private() {}

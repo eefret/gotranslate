@@ -16,39 +16,91 @@ limitations under the License.
 package gotranslate
 
 import (
-	// "errors"
+	"errors"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
-	// "reflect"
 	"regexp"
 	"strings"
 )
 
-const urlFormat string = "http://translate.google.com/translate_a/t?client=t&text=%s&hl=en&sl=%s&tl=%s&ie=UTF-8&oe=UTF-8&multires=1&otf=1&pc=1&trs=1&ssel=3&tsel=6&sc=1"
+//=======================================================================
+//							Const
+//=======================================================================
 
-/**
-*Static method for translating text
-*@param string text Text to translate
-*@param Lang from Language from which will be translated
-*@param Lang to Language to which will be translated
- */
-func QuickTranslation(text string, from Lang, to Lang) (string, error) {
+const baseUrl string = "http://translate.google.com"
 
-	return "", nil
+//=======================================================================
+//							Errors
+//=======================================================================
+var (
+	InvalidLangError   error = errors.New("The lang is invalid, please use a valid one")
+	NoTranslationError error = errors.New("Theres no Translation")
+)
+
+//=======================================================================
+//						Structs & Types
+//=======================================================================
+
+//Translator is a struct that contains an origin Lang and a result Lang
+//and saves history of the queries made
+type Translator struct {
+	fromLang      Lang
+	toLang        Lang
+	queryGroup    []string
+	responseGroup []string
 }
 
-type Response [][][]string
+//=======================================================================
+//							Funcs
+//=======================================================================
 
-func TranslationRequest(text string, from Lang, to Lang) (string, error) {
+//GetTranslator returns a Translator struct to ease translation operations
+//need a source Lang, a target Lang and a history size
+func GetTranslator(from Lang, to Lang, historySize int) (*Translator, error) {
+	if !from.valid() || !to.valid() {
+		return nil, InvalidLangError
+	}
 
-	/*	if !checkLang(from) && !checkLang(to) {
-		return "", errors.New("Not Lang type")
-	}*/
+	t := &Translator{
+		fromLang:      from,
+		toLang:        to,
+		queryGroup:    make([]string, historySize),
+		responseGroup: make([]string, historySize),
+	}
+	return t, nil
+}
+
+//Translate takes a string and make the translation over the created Struct
+func (t *Translator) Translate(text string) string {
+	t.queryGroup = append(t.queryGroup, text)
+	txt, err := translationRequest(text, t.fromLang, t.toLang)
+	check(err)
+	t.responseGroup = append(t.responseGroup, txt)
+	return txt
+}
+
+func (t *Translator) GetQueryHistory() []string {
+	strings := append([]string(nil), t.queryGroup...)
+	return strings
+}
+
+//QuickTranslation translate a single string given from and to langs
+func QuickTranslation(text string, from Lang, to Lang) string {
+	traslatedText, err := translationRequest(text, from, to)
+	check(err)
+	return traslatedText
+}
+
+func translationRequest(text string, from Lang, to Lang) (string, error) {
+
+	if !from.valid() || !to.valid() {
+		return "", InvalidLangError
+	}
 
 	var Url *url.URL
-	Url, err := url.Parse("http://translate.google.com")
+	Url, err := url.Parse(baseUrl)
 	check(err)
 
 	text = strings.Replace(text, "\"", "", -1)
@@ -61,8 +113,8 @@ func TranslationRequest(text string, from Lang, to Lang) (string, error) {
 	parameters.Add("client", "t")
 	parameters.Add("text", text)
 	parameters.Add("hl", "en")
-	parameters.Add("sl", string(from))
-	parameters.Add("tl", string(to))
+	parameters.Add("sl", from.String())
+	parameters.Add("tl", to.String())
 	parameters.Add("ie", "UTF-8")
 	parameters.Add("oe", "UTF-8")
 	parameters.Add("multires", "1")
@@ -78,14 +130,21 @@ func TranslationRequest(text string, from Lang, to Lang) (string, error) {
 	defer resp.Body.Close()
 	check(err)
 
+	if resp.StatusCode != http.StatusOK {
+		return "", errors.New(http.StatusText(resp.StatusCode))
+	}
+
 	contents, err := ioutil.ReadAll(resp.Body)
 	check(err)
-
 	reg, err := regexp.Compile("\"(.+?)\"")
 	check(err)
 
 	var allStrings []string
-	allStrings = reg.FindAllString(string(contents), 3)
+	allStrings = reg.FindAllString(string(contents), 2)
+
+	if len(allStrings) < 1 {
+		return "", NoTranslationError
+	}
 
 	return allStrings[0], nil
 }
@@ -95,10 +154,3 @@ func check(err error) {
 		log.Fatal(err)
 	}
 }
-
-/*func checkLang(i interface{}) bool {
-	if i.type == Lang {
-		return true
-	}
-	return false
-}*/
