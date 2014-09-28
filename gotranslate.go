@@ -34,6 +34,7 @@ const baseUrl string = "http://translate.google.com"
 //=======================================================================
 //							Errors
 //=======================================================================
+
 var (
 	InvalidLangError   error = errors.New("The lang is invalid, please use a valid one")
 	NoTranslationError error = errors.New("Theres no Translation")
@@ -81,8 +82,15 @@ func (t *Translator) Translate(text string) string {
 	return txt
 }
 
+//GetQueryHistory returns all strings submitted to Translator
 func (t *Translator) GetQueryHistory() []string {
 	strings := append([]string(nil), t.queryGroup...)
+	return strings
+}
+
+//GetResultsHistory returns all strings obtained from Translator.Translate
+func (t *Translator) GetResultsHistory() []string {
+	strings := append([]string(nil), t.responseGroup...)
 	return strings
 }
 
