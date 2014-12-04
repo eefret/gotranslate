@@ -524,12 +524,15 @@ var langs = [...]string{
 	"auto",
 	"auto"}
 
+//Control variable to test the validity of languages
+var langsLen Lang = Lang(len(langs))
+
 //=======================================================================
 //							Funcs
 //=======================================================================
 
 func (l Lang) valid() bool {
-	return uint8(l) < uint8(len(langs))
+	return l < langsLen
 }
 
 //Stringer interface for Lang type
