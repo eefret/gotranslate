@@ -540,6 +540,16 @@ func (l Lang) String() string {
 	return langs[l]
 }
 
+//IsLang is a function to check if the provided string is a valid Lang
+func IsLang(lang string) bool {
+	for _, val := range langs {
+		if lang == val {
+			return true
+		}
+	}
+	return false
+}
+
 type private interface {
 	private()
 }

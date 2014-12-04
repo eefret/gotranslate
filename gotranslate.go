@@ -13,7 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
+/*
+	This package is to help all gophers out there to translate texts with
+	google translate for free, hope it helps a lot of people
+*/
 package gotranslate
 
 import (
@@ -60,9 +63,9 @@ type Translator struct {
 //							Funcs
 //=======================================================================
 
-//GetTranslator returns a Translator struct to ease translation operations
-//need a source Lang, a target Lang and a history size
-func GetTranslator(from Lang, to Lang, historySize int) (*Translator, error) {
+//New returns a Translator struct to ease translation operations
+//need a source Lang and a target Lang
+func New(from Lang, to Lang) (*Translator, error) {
 	if !from.valid() || !to.valid() {
 		return nil, ErrInvalidLang
 	}
@@ -70,8 +73,8 @@ func GetTranslator(from Lang, to Lang, historySize int) (*Translator, error) {
 	t := &Translator{
 		fromLang:      from,
 		toLang:        to,
-		queryGroup:    make([]string, historySize),
-		responseGroup: make([]string, historySize),
+		queryGroup:    make([]string, 0, 20),
+		responseGroup: make([]string, 0, 20),
 	}
 	return t, nil
 }
@@ -85,14 +88,14 @@ func (t *Translator) Translate(text string) string {
 	return txt
 }
 
-//GetQueryHistory returns all strings submitted to Translator
-func (t *Translator) GetQueryHistory() []string {
+//QueryHistory returns all strings submitted to Translator
+func (t *Translator) QueryHistory() []string {
 	strings := append([]string(nil), t.queryGroup...)
 	return strings
 }
 
-//GetResultsHistory returns all strings obtained from Translator.Translate
-func (t *Translator) GetResultsHistory() []string {
+//ResultsHistory returns all strings obtained from Translator.Translate
+func (t *Translator) ResultsHistory() []string {
 	strings := append([]string(nil), t.responseGroup...)
 	return strings
 }
@@ -157,7 +160,9 @@ func translationRequest(text string, from Lang, to Lang) (string, error) {
 		return "", ErrNoTranslation
 	}
 
-	return allStrings[0], nil
+	s := allStrings[0]
+	s = strings.Trim(s, "\"")
+	return s, nil
 }
 
 func check(err error) {
